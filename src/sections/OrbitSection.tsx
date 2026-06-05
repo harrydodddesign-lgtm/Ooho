@@ -102,6 +102,9 @@ export default function OrbitSection({ onThemeChange }: { onThemeChange: (t: 'li
     // Dark overlay — late and fast  (68 → 100%)
     pinTl.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, ease: 'power2.in', duration: 0.32 }, 0.68)
 
+    // Hide rings entirely once covered — prevents bleed after pin releases
+    pinTl.set([leftRingRef.current, rightRingRef.current], { opacity: 0 }, 0.98)
+
     // Mouse parallax — y is free (scroll only drives x), x is a gentle nudge
     if (leftRingRef.current && rightRingRef.current) {
       qLeftY.current  = gsap.quickTo(leftRingRef.current,  'y', { duration: 0.9, ease: 'power3.out' })
@@ -121,21 +124,24 @@ export default function OrbitSection({ onThemeChange }: { onThemeChange: (t: 'li
     <section
       ref={sectionRef}
       className="h-screen bg-cloud-white relative flex items-center justify-center overflow-hidden"
-      style={{ zIndex: 1, isolation: 'isolate' }}
+      style={{ isolation: 'isolate' }}
     >
-      {/* Left ring */}
-      <div
-        ref={leftRingRef}
-        className="absolute rounded-full pointer-events-none"
-        style={{ width: RING, height: RING, borderWidth: '1.5px', borderStyle: 'solid', zIndex: 30 }}
-      />
-
-      {/* Right ring */}
-      <div
-        ref={rightRingRef}
-        className="absolute rounded-full pointer-events-none"
-        style={{ width: RING, height: RING, borderWidth: '1.5px', borderStyle: 'solid', zIndex: 30 }}
-      />
+      {/* Ring clip wrapper — absolute inset-0 so overflow-hidden reliably clips rings
+          regardless of GSAP pin setting position: fixed on the section */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
+        {/* Left ring */}
+        <div
+          ref={leftRingRef}
+          className="absolute rounded-full"
+          style={{ width: RING, height: RING, borderWidth: '1.5px', borderStyle: 'solid' }}
+        />
+        {/* Right ring */}
+        <div
+          ref={rightRingRef}
+          className="absolute rounded-full"
+          style={{ width: RING, height: RING, borderWidth: '1.5px', borderStyle: 'solid' }}
+        />
+      </div>
 
       {/* Content — radial halo + text */}
       <div
@@ -176,7 +182,7 @@ export default function OrbitSection({ onThemeChange }: { onThemeChange: (t: 'li
       <div
         ref={overlayRef}
         className="absolute inset-0 bg-midnight-ink pointer-events-none"
-        style={{ opacity: 0, zIndex: 35 }}
+        style={{ opacity: 0, zIndex: 50 }}
       />
     </section>
   )
