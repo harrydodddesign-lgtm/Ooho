@@ -123,7 +123,7 @@ export default function Home() {
                   <h1
                     className="text-cloud-white"
                     style={{
-                      fontFamily: "'Geist Circle', monospace",
+                      fontFamily: "'Geist', sans-serif",
                       fontWeight: 400,
                       fontSize: '6rem',
                       lineHeight: '1.0',
