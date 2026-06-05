@@ -124,7 +124,7 @@ export default function OrbitSection({ onThemeChange }: { onThemeChange: (t: 'li
     <section
       ref={sectionRef}
       className="h-screen bg-cloud-white relative flex items-center justify-center overflow-hidden"
-      style={{ isolation: 'isolate' }}
+      style={{ isolation: 'isolate', zIndex: 2 }}
     >
       {/* Ring clip wrapper — absolute inset-0 so overflow-hidden reliably clips rings
           regardless of GSAP pin setting position: fixed on the section */}
