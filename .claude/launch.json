@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "autoPort": true,
+  "configurations": [
+    {
+      "name": "ooho-website",
+      "runtimeExecutable": "/Users/harrydodd/Documents/Coding/claude/ooho-website/node_modules/.bin/vite",
+      "runtimeArgs": ["/Users/harrydodd/Documents/Coding/claude/ooho-website"],
+      "port": 5173
+    }
+  ]
+}
