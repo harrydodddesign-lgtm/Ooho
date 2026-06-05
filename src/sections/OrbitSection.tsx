@@ -176,7 +176,7 @@ export default function OrbitSection({ onThemeChange }: { onThemeChange: (t: 'li
       <div
         ref={overlayRef}
         className="absolute inset-0 bg-midnight-ink pointer-events-none"
-        style={{ opacity: 0, zIndex: 20 }}
+        style={{ opacity: 0, zIndex: 35 }}
       />
     </section>
   )
