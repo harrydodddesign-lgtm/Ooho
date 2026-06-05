@@ -90,7 +90,7 @@ export default function Styleguide() {
         <section>
           <p className="text-label uppercase tracking-widest text-steel-gray mb-8 pb-4 border-b border-silver-mist/30">Colors</p>
           <div className="flex flex-wrap gap-4">
-            {colors.map(({ token, hex, bg, text, border }) => (
+            {colors.map(({ token, hex, bg, border }) => (
               <div key={token} className="w-40">
                 <div
                   className={`h-24 rounded-xl ${bg} ${border ? 'border border-silver-mist/40' : ''} mb-3`}
