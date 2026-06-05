@@ -83,5 +83,6 @@
 
   body {
     @apply bg-cloud-white text-midnight-ink font-sans;
+    line-height: 1.4;
   }
 }

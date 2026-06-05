@@ -120,8 +120,8 @@ export default function OrbitSection({ onThemeChange }: { onThemeChange: (t: 'li
   return (
     <section
       ref={sectionRef}
-      className="h-screen bg-cloud-white relative flex items-center justify-center"
-      style={{ zIndex: 1 }}
+      className="h-screen bg-cloud-white relative flex items-center justify-center overflow-hidden"
+      style={{ zIndex: 1, isolation: 'isolate' }}
     >
       {/* Left ring */}
       <div
@@ -159,7 +159,7 @@ export default function OrbitSection({ onThemeChange }: { onThemeChange: (t: 'li
           </div>
           <h2
             className="font-semibold text-midnight-ink mb-5"
-            style={{ fontSize: 'clamp(36px, 4vw, 52px)', lineHeight: '1.1', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(36px, 4vw, 52px)', lineHeight: '1.05', letterSpacing: '-0.02em' }}
           >
             Complexity,<br />meet creativity.
           </h2>

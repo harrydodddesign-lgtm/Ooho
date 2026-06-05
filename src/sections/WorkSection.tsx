@@ -100,7 +100,7 @@ export default function WorkSection({ onThemeChange }: { onThemeChange: (t: 'lig
   }, [onThemeChange])
 
   return (
-    <section ref={sectionRef} className="relative px-6 pt-24 pb-32">
+    <section ref={sectionRef} className="relative px-6 pt-24 pb-32" style={{ isolation: 'isolate' }}>
 
       {/* Section header */}
       <div className="mb-16">
@@ -112,7 +112,7 @@ export default function WorkSection({ onThemeChange }: { onThemeChange: (t: 'lig
           <Reveal>
             <h2
               className="text-cloud-white font-bold"
-              style={{ fontSize: 'clamp(32px, 3.5vw, 52px)', lineHeight: '1.1', letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(32px, 3.5vw, 52px)', lineHeight: '1.05', letterSpacing: '-0.02em' }}
             >
               Trusted by 100+ life sciences and medtech companies across US & EU.
             </h2>
